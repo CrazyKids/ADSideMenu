@@ -14,22 +14,22 @@ class ADContentViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Content ViewController"
+        view.backgroundColor = UIColor.greenColor()
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .Plain, target: self, action: #selector(ADContentViewController.onLeftBarButtonClicked(_:)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .Plain, target: self, action: #selector(ADContentViewController.onRightBarButtonClicked(_:)))
-        
-        let imageView: UIImageView = UIImageView(image: UIImage(named: "Balloon"))
-        imageView.frame = view.bounds
-        imageView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        imageView.contentMode = .ScaleAspectFill
-        view.addSubview(imageView)
     }
     
     func onLeftBarButtonClicked(anyObject: AnyObject) {
-        
+        if let sideMenu = self.sideMenuViewControoler() {
+            sideMenu.presentLeftMenuViewController()
+        }
     }
     
     func onRightBarButtonClicked(anyObject: AnyObject) {
-        
+        if let sideMenu = self.sideMenuViewControoler() {
+            sideMenu.presentRightMenuViewController()
+        }
     }
 
 }

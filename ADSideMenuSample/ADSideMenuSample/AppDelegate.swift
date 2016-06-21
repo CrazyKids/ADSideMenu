@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rightVC: ADRightMenuViewController = ADRightMenuViewController()
         
         let sideMenu: ADSideMenuVC = ADSideMenuVC(contentVC: nav, leftMenuVC: leftVC, rightMenuVC: rightVC)
-        sideMenu.backgroundImage = UIImage(named: "Stars")
+        sideMenu.scaleContentView = true
+        sideMenu.scaleMenuView = true
         self.window?.rootViewController = sideMenu
         self.window?.makeKeyAndVisible()
         
