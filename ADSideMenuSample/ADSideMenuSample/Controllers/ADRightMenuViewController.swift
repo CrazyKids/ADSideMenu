@@ -17,24 +17,24 @@ class ADRightMenuViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         tableView = UITableView(frame: view.bounds)
-        tableView?.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        tableView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView?.dataSource = self
 //        tableView?.backgroundColor = UIColor.clearColor()
         tableView?.tableFooterView = UIView(frame: CGRect.zero)
-        tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         view.addSubview(tableView!)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        cell.selectionStyle = .None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.selectionStyle = .none
         cell.textLabel?.text = tableData[indexPath.row]
-        cell.textLabel?.textAlignment = .Right
+        cell.textLabel?.textAlignment = .right
         
         return cell
     }

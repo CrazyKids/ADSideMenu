@@ -8,25 +8,25 @@
 
 import UIKit
 
-class ADSideMenuVC: UIViewController {
+public class ADSideMenuVC: UIViewController {
 
-    var leftMenuVC: UIViewController?
-    var rightMenuVC: UIViewController?
-    var contentVC: UIViewController?
+    public var leftMenuVC: UIViewController?
+    public var rightMenuVC: UIViewController?
+    public var contentVC: UIViewController?
     
-    var scaleContentView: Bool = true
-    var scaleMenuView: Bool = true
-    var menuViewControllerTransformation: CGAffineTransform = CGAffineTransformMakeScale(1.5, 1.5)
-    var animationDuration: NSTimeInterval = 0.35
-    var contentViewScaleValue: CGFloat = 0.7
+    public var scaleContentView: Bool = true
+    public var scaleMenuView: Bool = true
+    public var menuViewControllerTransformation: CGAffineTransform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+    public var animationDuration: TimeInterval = 0.35
+    public var contentViewScaleValue: CGFloat = 0.7
     
-    private var contentViewContainer: UIView = UIView()
-    private var menuViewContainer: UIView = UIView()
-    private var contentButton: UIButton = UIButton()
-    private var leftMenuVisible: Bool = false
-    private var rightMenuVisible: Bool = false
+    var contentViewContainer: UIView = UIView()
+    var menuViewContainer: UIView = UIView()
+    var contentButton: UIButton = UIButton()
+    var leftMenuVisible: Bool = false
+    var rightMenuVisible: Bool = false
 
-    convenience init(contentVC: UIViewController, leftMenuVC: UIViewController?, rightMenuVC: UIViewController?) {
+    convenience public init(contentVC: UIViewController, leftMenuVC: UIViewController?, rightMenuVC: UIViewController?) {
         self.init()
         
         self.leftMenuVC = leftMenuVC
@@ -34,138 +34,155 @@ class ADSideMenuVC: UIViewController {
         self.rightMenuVC = rightMenuVC
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        view.backgroundColor = UIColor.whiteColor()
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.backgroundColor = UIColor.white
         
         view.addSubview(menuViewContainer)
         view.addSubview(contentViewContainer)
         
         contentViewContainer.frame = view.bounds
         menuViewContainer.frame = view.bounds
-        contentViewContainer.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        menuViewContainer.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        contentViewContainer.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        menuViewContainer.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        if let leftVC = leftMenuVC {
+        if let leftVC = self.leftMenuVC {
             addChildViewController(leftVC)
-            leftVC.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            leftVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             menuViewContainer.addSubview(leftVC.view)
-            leftVC.didMoveToParentViewController(self)
+            leftVC.didMove(toParentViewController: self)
         }
         
-        if let rightVC = rightMenuVC {
+        if let rightVC = self.rightMenuVC {
             addChildViewController(rightVC)
-            rightVC.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            rightVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             menuViewContainer.addSubview(rightVC.view)
-            rightVC.didMoveToParentViewController(self)
+            rightVC.didMove(toParentViewController: self)
         }
         
         addChildViewController(contentVC!)
-        contentVC!.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        contentVC!.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         contentViewContainer.addSubview(contentVC!.view)
-        contentVC!.didMoveToParentViewController(self)
+        contentVC!.didMove(toParentViewController: self)
         
         contentButton.frame = CGRect.null
-        contentButton .addTarget(self, action:#selector(hiddenMenuViewController), forControlEvents: .TouchUpInside)
+        contentButton .addTarget(self, action:#selector(hiddenMenuViewController), for: .touchUpInside)
     }
     
-    private func presentMenuViewController(menuVC: UIViewController) {
-        menuViewContainer.transform = CGAffineTransformIdentity
+    public func presentLeftMenuViewController() {
+        if let leftMenu = self.leftMenuVC {
+            presentMenuViewController(leftMenu)
+            showLeftMenuViewController()
+        }
+    }
+    
+    public func presentRightMenuViewController() {
+        if let rightMenu = self.rightMenuVC {
+            presentMenuViewController(rightMenu)
+            showRightMenuViewController()
+        }
+    }
+    
+    public func hiddenMenuViewController() {
+        hiddenMenuVC(true)
+    }
+    
+    func presentMenuViewController(_ menuVC: UIViewController) {
+        menuViewContainer.transform = CGAffineTransform.identity
         menuViewContainer.frame = view.bounds
         if scaleMenuView {
             menuViewContainer.transform = menuViewControllerTransformation
         }
     }
     
-    private func showLeftMenuViewController() {
-        if leftMenuVC == nil {
+    func showLeftMenuViewController() {
+        if self.leftMenuVC == nil {
             return
         }
         
-        leftMenuVC?.beginAppearanceTransition(true, animated: true)
-        leftMenuVC?.view.hidden = false
-        rightMenuVC?.view.hidden = true
+        self.leftMenuVC?.beginAppearanceTransition(true, animated: true)
+        self.leftMenuVC?.view.isHidden = false
+        self.rightMenuVC?.view.isHidden = true
         
         view.window?.endEditing(false)
         addContentButton()
         resetContentViewScale()
         
-        UIView.animateWithDuration(animationDuration, animations: {
+        UIView.animate(withDuration: animationDuration, animations: {
             if self.scaleContentView {
-                self.contentViewContainer.transform = CGAffineTransformMakeScale(self.contentViewScaleValue, self.contentViewScaleValue)
+                self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
             } else {
-                self.contentViewContainer.transform = CGAffineTransformIdentity
+                self.contentViewContainer.transform = CGAffineTransform.identity
             }
             
-            self.contentViewContainer.center = CGPointMake(self.view.bounds.width + 30, self.contentViewContainer.center.y)
-            self.contentViewContainer.alpha = 1;
-            self.menuViewContainer.transform = CGAffineTransformIdentity;
+            self.contentViewContainer.center = CGPoint(x: self.view.bounds.width + 30, y: self.contentViewContainer.center.y)
+            self.contentViewContainer.alpha = 1
+            self.menuViewContainer.transform = CGAffineTransform.identity
         }) { (finished: Bool) in
             self.leftMenuVC?.endAppearanceTransition()
             self.leftMenuVisible = true
         }
     }
     
-    private func showRightMenuViewController() {
+    func showRightMenuViewController() {
         if rightMenuVC == nil {
             return
         }
         
         rightMenuVC?.beginAppearanceTransition(true, animated: true)
-        rightMenuVC?.view.hidden = true
-        rightMenuVC?.view.hidden = false
+        rightMenuVC?.view.isHidden = true
+        rightMenuVC?.view.isHidden = false
         
         view.window?.endEditing(false)
         addContentButton()
         resetContentViewScale()
         
-        UIView.animateWithDuration(animationDuration, animations: {
+        UIView.animate(withDuration: animationDuration, animations: {
             if self.scaleContentView {
-                self.contentViewContainer.transform = CGAffineTransformMakeScale(self.contentViewScaleValue, self.contentViewScaleValue)
+                self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
             } else {
-                self.contentViewContainer.transform = CGAffineTransformIdentity
+                self.contentViewContainer.transform = CGAffineTransform.identity
             }
             
-            self.contentViewContainer.center = CGPointMake(-30, self.contentViewContainer.center.y)
-            self.contentViewContainer.alpha = 1;
-            self.menuViewContainer.transform = CGAffineTransformIdentity;
+            self.contentViewContainer.center = CGPoint(x: -30, y: self.contentViewContainer.center.y)
+            self.contentViewContainer.alpha = 1
+            self.menuViewContainer.transform = CGAffineTransform.identity
         }) { (finished: Bool) in
             self.rightMenuVC?.endAppearanceTransition()
             self.rightMenuVisible = true
         }
     }
     
-    private func resetContentViewScale() {
+    func resetContentViewScale() {
         let t: CGAffineTransform = contentViewContainer.transform
         let scale: CGFloat = sqrt(t.a * t.a + t.c * t.c)
         let frame: CGRect = contentViewContainer.frame
-        contentViewContainer.transform = CGAffineTransformIdentity
-        contentViewContainer.transform = CGAffineTransformMakeScale(scale, scale)
+        contentViewContainer.transform = CGAffineTransform.identity
+        contentViewContainer.transform = CGAffineTransform(scaleX: scale, y: scale)
         contentViewContainer.frame = frame
     }
     
-    private func addContentButton() {
+    func addContentButton() {
         if contentButton.superview != nil {
             return
         }
-        
-        contentButton.autoresizingMask = .None
+
         contentButton.frame = contentViewContainer.bounds
-        contentButton.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        contentButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         contentViewContainer.addSubview(contentButton)
     }
     
-    private func hiddenMenuVC(animated: Bool) {
+    func hiddenMenuVC(_ animated: Bool) {
         let menuVC: UIViewController? = rightMenuVisible ? rightMenuVC : leftMenuVC
         if menuVC == nil {
             return
@@ -177,11 +194,11 @@ class ADSideMenuVC: UIViewController {
         contentButton.removeFromSuperview()
         
         if animated {
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            UIView.animateWithDuration(animationDuration, animations: {
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            UIView.animate(withDuration: animationDuration, animations: {
                 self.animationBlock()
             }, completion: { (finised: Bool) in
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 menuVC!.endAppearanceTransition()
             })
         } else {
@@ -190,46 +207,12 @@ class ADSideMenuVC: UIViewController {
         }
     }
     
-    private func animationBlock() {
-        contentViewContainer.transform = CGAffineTransformIdentity;
-        contentViewContainer.frame = view.bounds;
+    func animationBlock() {
+        contentViewContainer.transform = CGAffineTransform.identity
+        contentViewContainer.frame = view.bounds
         if (scaleMenuView) {
-            menuViewContainer.transform = menuViewControllerTransformation;
+            menuViewContainer.transform = menuViewControllerTransformation
         }
-        contentViewContainer.alpha = 1;
+        contentViewContainer.alpha = 1
     }
 }
-
-extension ADSideMenuVC {
-    func presentLeftMenuViewController() {
-        if let leftMenu = self.leftMenuVC {
-            presentMenuViewController(leftMenu)
-            showLeftMenuViewController()
-        }
-    }
-    
-    func presentRightMenuViewController() {
-        if let rightMenu = self.rightMenuVC {
-            presentMenuViewController(rightMenu)
-            showRightMenuViewController()
-        }
-    }
-    
-    func hiddenMenuViewController() {
-        hiddenMenuVC(true)
-    }
-}
-
-extension ADSideMenuVC {
-    override func shouldAutorotate() -> Bool {
-        return true;
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait
-    }
-}
-
-
-
-

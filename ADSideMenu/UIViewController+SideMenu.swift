@@ -8,15 +8,15 @@
 
 import UIKit
 
-extension UIViewController {
-    func sideMenuViewControoler() -> ADSideMenuVC? {
-        var iter: UIViewController? = self.parentViewController
+public extension UIViewController {
+    public func sideMenuViewControoler() -> ADSideMenuVC? {
+        var iter: UIViewController? = self.parent
         while iter != nil {
-            if (iter!.isKindOfClass(ADSideMenuVC)) {
+            if (iter!.isKind(of: ADSideMenuVC.self)) {
                 return iter as? ADSideMenuVC
             }
             
-            iter = iter?.parentViewController
+            iter = iter?.parent
         }
         
         return nil

@@ -14,19 +14,19 @@ class ADContentViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Content ViewController"
-        view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.green
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .Plain, target: self, action: #selector(ADContentViewController.onLeftBarButtonClicked(_:)))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .Plain, target: self, action: #selector(ADContentViewController.onRightBarButtonClicked(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(ADContentViewController.onLeftBarButtonClicked(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(ADContentViewController.onRightBarButtonClicked(_:)))
     }
     
-    func onLeftBarButtonClicked(anyObject: AnyObject) {
+    func onLeftBarButtonClicked(_ anyObject: AnyObject) {
         if let sideMenu = self.sideMenuViewControoler() {
             sideMenu.presentLeftMenuViewController()
         }
     }
     
-    func onRightBarButtonClicked(anyObject: AnyObject) {
+    func onRightBarButtonClicked(_ anyObject: AnyObject) {
         if let sideMenu = self.sideMenuViewControoler() {
             sideMenu.presentRightMenuViewController()
         }
