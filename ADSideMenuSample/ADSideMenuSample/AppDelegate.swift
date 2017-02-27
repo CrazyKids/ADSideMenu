@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         let contentVC: ADContentViewController = ADContentViewController()
@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rightVC: ADRightMenuViewController = ADRightMenuViewController()
         
         let sideMenu: ADSideMenuVC = ADSideMenuVC(contentVC: nav, leftMenuVC: leftVC, rightMenuVC: rightVC)
-        sideMenu.scaleContentView = true
         sideMenu.scaleMenuView = true
+        sideMenu.scaleContentView = true
         self.window?.rootViewController = sideMenu
         self.window?.makeKeyAndVisible()
         

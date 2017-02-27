@@ -18,6 +18,11 @@
 		11B51C1E1D14446C0049B219 /* ADLeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B51C1D1D14446C0049B219 /* ADLeftMenuViewController.swift */; };
 		11B51C201D14452D0049B219 /* ADContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B51C1F1D14452D0049B219 /* ADContentViewController.swift */; };
 		11B51C221D1445470049B219 /* ADRightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B51C211D1445470049B219 /* ADRightMenuViewController.swift */; };
+		11CFCC511E6475C9009DA2E9 /* ADSideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 11CFCC4F1E6475C9009DA2E9 /* ADSideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11CFCC541E6475C9009DA2E9 /* ADSideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CFCC4D1E6475C9009DA2E9 /* ADSideMenu.framework */; };
+		11CFCC551E6475C9009DA2E9 /* ADSideMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11CFCC4D1E6475C9009DA2E9 /* ADSideMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		11CFCC5A1E6475E1009DA2E9 /* ADSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B51C1A1D1443810049B219 /* ADSideMenuVC.swift */; };
+		11CFCC5B1E6475E1009DA2E9 /* UIViewController+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243668F51D1A1982009AE1D8 /* UIViewController+SideMenu.swift */; };
 		243668F61D1A1982009AE1D8 /* UIViewController+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243668F51D1A1982009AE1D8 /* UIViewController+SideMenu.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +41,28 @@
 			remoteGlobalIDString = 11B51BE71D1443240049B219;
 			remoteInfo = ADSideMenuSample;
 		};
+		11CFCC521E6475C9009DA2E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11B51BE01D1443240049B219 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11CFCC4C1E6475C9009DA2E9;
+			remoteInfo = ADSideMenu;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		11CFCC591E6475C9009DA2E9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				11CFCC551E6475C9009DA2E9 /* ADSideMenu.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		11B51BE81D1443240049B219 /* ADSideMenuSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADSideMenuSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +82,9 @@
 		11B51C1D1D14446C0049B219 /* ADLeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADLeftMenuViewController.swift; path = Controllers/ADLeftMenuViewController.swift; sourceTree = "<group>"; };
 		11B51C1F1D14452D0049B219 /* ADContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADContentViewController.swift; path = Controllers/ADContentViewController.swift; sourceTree = "<group>"; };
 		11B51C211D1445470049B219 /* ADRightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADRightMenuViewController.swift; path = Controllers/ADRightMenuViewController.swift; sourceTree = "<group>"; };
+		11CFCC4D1E6475C9009DA2E9 /* ADSideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ADSideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11CFCC4F1E6475C9009DA2E9 /* ADSideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADSideMenu.h; sourceTree = "<group>"; };
+		11CFCC501E6475C9009DA2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		243668F51D1A1982009AE1D8 /* UIViewController+SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+SideMenu.swift"; path = "../ADSideMenu/UIViewController+SideMenu.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CFCC541E6475C9009DA2E9 /* ADSideMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +111,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		11CFCC491E6475C9009DA2E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +128,7 @@
 				11B51BEA1D1443240049B219 /* ADSideMenuSample */,
 				11B51BFF1D1443240049B219 /* ADSideMenuSampleTests */,
 				11B51C0A1D1443240049B219 /* ADSideMenuSampleUITests */,
+				11CFCC4E1E6475C9009DA2E9 /* ADSideMenu */,
 				11B51BE91D1443240049B219 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +139,7 @@
 				11B51BE81D1443240049B219 /* ADSideMenuSample.app */,
 				11B51BFC1D1443240049B219 /* ADSideMenuSampleTests.xctest */,
 				11B51C071D1443240049B219 /* ADSideMenuSampleUITests.xctest */,
+				11CFCC4D1E6475C9009DA2E9 /* ADSideMenu.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,7 +195,27 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		11CFCC4E1E6475C9009DA2E9 /* ADSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				11CFCC4F1E6475C9009DA2E9 /* ADSideMenu.h */,
+				11CFCC501E6475C9009DA2E9 /* Info.plist */,
+			);
+			path = ADSideMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		11CFCC4A1E6475C9009DA2E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11CFCC511E6475C9009DA2E9 /* ADSideMenu.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		11B51BE71D1443240049B219 /* ADSideMenuSample */ = {
@@ -166,10 +225,12 @@
 				11B51BE41D1443240049B219 /* Sources */,
 				11B51BE51D1443240049B219 /* Frameworks */,
 				11B51BE61D1443240049B219 /* Resources */,
+				11CFCC591E6475C9009DA2E9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				11CFCC531E6475C9009DA2E9 /* PBXTargetDependency */,
 			);
 			name = ADSideMenuSample;
 			productName = ADSideMenuSample;
@@ -212,6 +273,24 @@
 			productReference = 11B51C071D1443240049B219 /* ADSideMenuSampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		11CFCC4C1E6475C9009DA2E9 /* ADSideMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11CFCC561E6475C9009DA2E9 /* Build configuration list for PBXNativeTarget "ADSideMenu" */;
+			buildPhases = (
+				11CFCC481E6475C9009DA2E9 /* Sources */,
+				11CFCC491E6475C9009DA2E9 /* Frameworks */,
+				11CFCC4A1E6475C9009DA2E9 /* Headers */,
+				11CFCC4B1E6475C9009DA2E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ADSideMenu;
+			productName = ADSideMenu;
+			productReference = 11CFCC4D1E6475C9009DA2E9 /* ADSideMenu.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,19 +298,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = comisys;
 				TargetAttributes = {
 					11B51BE71D1443240049B219 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 					};
 					11B51BFB1D1443240049B219 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 11B51BE71D1443240049B219;
 					};
 					11B51C061D1443240049B219 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 11B51BE71D1443240049B219;
+					};
+					11CFCC4C1E6475C9009DA2E9 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -251,6 +337,7 @@
 				11B51BE71D1443240049B219 /* ADSideMenuSample */,
 				11B51BFB1D1443240049B219 /* ADSideMenuSampleTests */,
 				11B51C061D1443240049B219 /* ADSideMenuSampleUITests */,
+				11CFCC4C1E6475C9009DA2E9 /* ADSideMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -274,6 +361,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		11B51C051D1443240049B219 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11CFCC4B1E6475C9009DA2E9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,6 +407,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		11CFCC481E6475C9009DA2E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11CFCC5A1E6475E1009DA2E9 /* ADSideMenuVC.swift in Sources */,
+				11CFCC5B1E6475E1009DA2E9 /* UIViewController+SideMenu.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -325,6 +428,11 @@
 			isa = PBXTargetDependency;
 			target = 11B51BE71D1443240049B219 /* ADSideMenuSample */;
 			targetProxy = 11B51C081D1443240049B219 /* PBXContainerItemProxy */;
+		};
+		11CFCC531E6475C9009DA2E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11CFCC4C1E6475C9009DA2E9 /* ADSideMenu */;
+			targetProxy = 11CFCC521E6475C9009DA2E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -362,8 +470,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -385,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -407,8 +517,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -424,9 +536,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -434,22 +547,26 @@
 		11B51C111D1443240049B219 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ADSideMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.comisys.ADSideMenuSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrazyKids.ADSideMenuSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		11B51C121D1443240049B219 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ADSideMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.comisys.ADSideMenuSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrazyKids.ADSideMenuSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -461,6 +578,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.comisys.ADSideMenuSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSideMenuSample.app/ADSideMenuSample";
 			};
 			name = Debug;
@@ -473,6 +591,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.comisys.ADSideMenuSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSideMenuSample.app/ADSideMenuSample";
 			};
 			name = Release;
@@ -484,6 +603,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.comisys.ADSideMenuSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ADSideMenuSample;
 			};
 			name = Debug;
@@ -495,7 +615,57 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.comisys.ADSideMenuSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ADSideMenuSample;
+			};
+			name = Release;
+		};
+		11CFCC571E6475C9009DA2E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ADSideMenu/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrazyKids.ADSideMenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		11CFCC581E6475C9009DA2E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ADSideMenu/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CrazyKids.ADSideMenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -537,6 +707,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		11CFCC561E6475C9009DA2E9 /* Build configuration list for PBXNativeTarget "ADSideMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11CFCC571E6475C9009DA2E9 /* Debug */,
+				11CFCC581E6475C9009DA2E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
