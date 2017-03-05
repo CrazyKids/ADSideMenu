@@ -37,4 +37,8 @@ class ADLeftMenuViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
 }

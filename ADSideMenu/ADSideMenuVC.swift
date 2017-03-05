@@ -27,9 +27,6 @@ public class ADSideMenuVC: UIViewController {
     /// defaule value is 0.7
     public var contentViewScaleValue: CGFloat = 0.7
     
-    /// value of preferredStatusBarStyle
-    public var statusBarStyle: UIStatusBarStyle = .default
-    
     var contentViewContainer: UIView = UIView()
     var menuViewContainer: UIView = UIView()
     var contentButton: UIButton = UIButton()
@@ -91,7 +88,19 @@ public class ADSideMenuVC: UIViewController {
     }
     
     override public var preferredStatusBarStyle: UIStatusBarStyle {
-        return statusBarStyle
+        if leftMenuVisible {
+            return (leftMenuVC?.preferredStatusBarStyle)!
+        }
+        
+        if rightMenuVisible {
+            return (rightMenuVC?.preferredStatusBarStyle)!
+        }
+        
+        if contentVC != nil {
+            return (contentVC?.preferredStatusBarStyle)!
+        }
+        
+        return .default
     }
     
     public func presentLeftMenuViewController() {
@@ -146,6 +155,8 @@ public class ADSideMenuVC: UIViewController {
         }) { (finished: Bool) in
             self.leftMenuVC?.endAppearanceTransition()
             self.leftMenuVisible = true
+            
+            self.statusBarNeedsAppearanceUpdate()
         }
     }
     
@@ -175,6 +186,8 @@ public class ADSideMenuVC: UIViewController {
         }) { (finished: Bool) in
             self.rightMenuVC?.endAppearanceTransition()
             self.rightMenuVisible = true
+            
+            self.statusBarNeedsAppearanceUpdate()
         }
     }
     
@@ -215,10 +228,13 @@ public class ADSideMenuVC: UIViewController {
             }, completion: { (finised: Bool) in
                 UIApplication.shared.endIgnoringInteractionEvents()
                 menuVC!.endAppearanceTransition()
+                
+                self.statusBarNeedsAppearanceUpdate()
             })
         } else {
             self.animationBlock()
             menuVC!.endAppearanceTransition()
+            self.statusBarNeedsAppearanceUpdate()
         }
     }
     
@@ -229,5 +245,12 @@ public class ADSideMenuVC: UIViewController {
             menuViewContainer.transform = menuViewControllerTransformation
         }
         contentViewContainer.alpha = 1
+    }
+    
+    func statusBarNeedsAppearanceUpdate() {
+        
+        UIView.animate(withDuration: 0.3) { [unowned self] in
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
 }

@@ -32,4 +32,7 @@ class ADContentViewController: UIViewController {
         }
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
 }

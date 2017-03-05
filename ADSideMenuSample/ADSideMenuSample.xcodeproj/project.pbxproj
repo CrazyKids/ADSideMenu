@@ -24,6 +24,7 @@
 		11CFCC5A1E6475E1009DA2E9 /* ADSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B51C1A1D1443810049B219 /* ADSideMenuVC.swift */; };
 		11CFCC5B1E6475E1009DA2E9 /* UIViewController+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243668F51D1A1982009AE1D8 /* UIViewController+SideMenu.swift */; };
 		243668F61D1A1982009AE1D8 /* UIViewController+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243668F51D1A1982009AE1D8 /* UIViewController+SideMenu.swift */; };
+		24BA03C91E6C1C0A004B7351 /* ADNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BA03C81E6C1C0A004B7351 /* ADNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		11CFCC4F1E6475C9009DA2E9 /* ADSideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADSideMenu.h; sourceTree = "<group>"; };
 		11CFCC501E6475C9009DA2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		243668F51D1A1982009AE1D8 /* UIViewController+SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+SideMenu.swift"; path = "../ADSideMenu/UIViewController+SideMenu.swift"; sourceTree = "<group>"; };
+		24BA03C81E6C1C0A004B7351 /* ADNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADNavigationController.swift; path = Controllers/ADNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				11B51C1D1D14446C0049B219 /* ADLeftMenuViewController.swift */,
 				11B51C1F1D14452D0049B219 /* ADContentViewController.swift */,
 				11B51C211D1445470049B219 /* ADRightMenuViewController.swift */,
+				24BA03C81E6C1C0A004B7351 /* ADNavigationController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BA03C91E6C1C0A004B7351 /* ADNavigationController.swift in Sources */,
 				11B51C1B1D1443810049B219 /* ADSideMenuVC.swift in Sources */,
 				11B51C1E1D14446C0049B219 /* ADLeftMenuViewController.swift in Sources */,
 				11B51C201D14452D0049B219 /* ADContentViewController.swift in Sources */,
@@ -715,6 +719,7 @@
 				11CFCC581E6475C9009DA2E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

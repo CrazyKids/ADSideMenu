@@ -18,13 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let contentVC: ADContentViewController = ADContentViewController()
-        let nav: UINavigationController = UINavigationController(rootViewController: contentVC)
+        let nav: ADNavigationController = ADNavigationController(rootViewController: contentVC)
         let leftVC: ADLeftMenuViewController = ADLeftMenuViewController()
         let rightVC: ADRightMenuViewController = ADRightMenuViewController()
         
         let sideMenu: ADSideMenuVC = ADSideMenuVC(contentVC: nav, leftMenuVC: leftVC, rightMenuVC: rightVC)
-        sideMenu.scaleMenuView = true
-        sideMenu.scaleContentView = true
+//        sideMenu.scaleMenuView = true
+//        sideMenu.scaleContentView = true
         self.window?.rootViewController = sideMenu
         self.window?.makeKeyAndVisible()
         
