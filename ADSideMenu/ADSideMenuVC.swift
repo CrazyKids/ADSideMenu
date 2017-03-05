@@ -149,7 +149,7 @@ public class ADSideMenuVC: UIViewController {
                 self.contentViewContainer.transform = CGAffineTransform.identity
             }
             
-            self.contentViewContainer.center = CGPoint(x: self.view.bounds.width + 30, y: self.contentViewContainer.center.y)
+            self.contentViewContainer.center = CGPoint(x: self.view.bounds.width * 13 / 10.0, y: self.contentViewContainer.center.y)
             self.contentViewContainer.alpha = 1
             self.menuViewContainer.transform = CGAffineTransform.identity
         }) { (finished: Bool) in
@@ -180,7 +180,7 @@ public class ADSideMenuVC: UIViewController {
                 self.contentViewContainer.transform = CGAffineTransform.identity
             }
             
-            self.contentViewContainer.center = CGPoint(x: -30, y: self.contentViewContainer.center.y)
+            self.contentViewContainer.center = CGPoint(x: -self.view.bounds.width * 3 / 10, y: self.contentViewContainer.center.y)
             self.contentViewContainer.alpha = 1
             self.menuViewContainer.transform = CGAffineTransform.identity
         }) { (finished: Bool) in
