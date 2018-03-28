@@ -3,7 +3,7 @@
 //  ADSideMenuSample
 //
 //  Created by duanhongjin on 16/6/17.
-//  Copyright © 2016年 comisys. All rights reserved.
+//  Copyright © 2016年 CrazyKids. All rights reserved.
 //
 
 import UIKit
